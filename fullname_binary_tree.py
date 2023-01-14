@@ -64,8 +64,11 @@ def build_tree(elements):
 
 if __name__ == '__main__':
     fullname = input("Fullname: ")
-    numbers = [19, 13, 19, 38, 1, 27, 8, 15, 16, 50, 12]
-    numbers_tree = build_tree(numbers)
-    print(numbers_tree.in_order_traversal())
-    print(numbers_tree.search(1))
-    print(numbers_tree.search(50))
+    namecon = []
+    for i in range(0 , len(fullname)):
+        namecon.append(fullname[i])
+    name_tree = build_tree(namecon)
+    print(name_tree.in_order_traversal())
+    print(name_tree.pre_order_traversal())
+    print(name_tree.post_order_traversal())
+
