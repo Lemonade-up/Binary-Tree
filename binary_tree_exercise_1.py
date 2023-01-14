@@ -58,7 +58,27 @@ class BinarySearchTreeNode:
                 return self.right.search(val)
             else:
                 return False
+    
+    def delete(self, val):
+        if val < self.left:
+            self.left = self.left.delete(val)
+        if val > self.right:
+            self.right = self.right.delete(val)
+        
+        else:    
+            if self.left is None and self.right is None:
+                return None
+            if self.left:
+                return self.left
+            if self.right:
+                return self.right
 
+            minval = self.right.find_min()
+            self.data = minval
+            self.right = self.right.delete(minval)
+
+        return self
+        
     def in_order_traversal(self):
         elements = []
 
@@ -116,3 +136,7 @@ if __name__ == '__main__':
     print(numbers_tree.calculate_sum())
     print(numbers_tree.pre_order_traversal())
     print(numbers_tree.post_order_traversal())
+
+    numbers_kree = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
+    numbers_kree.delete(17)
+    print("After deleting 17 ",numbers_kree.in_order_traversal())  # this should print [1, 4, 9, 18, 20, 23, 34]
