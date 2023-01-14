@@ -60,18 +60,20 @@ class BinarySearchTreeNode:
                 return False
     
     def delete(self, val):
-        if val < self.left:
-            self.left = self.left.delete(val)
-        if val > self.right:
-            self.right = self.right.delete(val)
+        if val < self.data:
+            if self.left:
+                self.left = self.left.delete(val)
+        if val > self.data:
+            if self.right:
+                self.right = self.right.delete(val)
         
         else:    
             if self.left is None and self.right is None:
                 return None
-            if self.left:
-                return self.left
-            if self.right:
+            if self.left is None:
                 return self.right
+            if self.right is None:
+                return self.left
 
             minval = self.right.find_min()
             self.data = minval
