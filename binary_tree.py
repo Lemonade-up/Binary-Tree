@@ -19,6 +19,21 @@ class BinarySearchTreeNode:
             else:
                 self.right = BinarySearchTreeNode(data)    
 
+    def search(self, val):
+        if self.data == val:
+            return True
+        if val < self.data: #left tree
+            if self.left:
+                self.left.search(val)
+            else:
+                return False
+
+        if val > self.data: #right tree
+            if self.right:
+                self.right.search(val)
+            else:
+                return False
+
     def in_order_traversal(self):
         elements = []
 
