@@ -35,13 +35,12 @@ class BinarySearchTreeNode:
         
 def build_tree(elements):
     root = BinarySearchTreeNode(elements[0])
-
     for i in range( 1, len(elements)):
         root.add_child(elements[i])
         
-    return
+    return root
 
 if __name__ == '__main__':
     numbers = [19, 13, 19, 38, 1, 27, 8, 15, 16, 50, 12]
-    numbers_tree = build_tree([19, 13, 19, 38, 1, 27, 8, 15, 16, 50, 12])
-    print(numbers_tree)
+    numbers_tree = build_tree(numbers)
+    print(numbers_tree.in_order_traversal())
