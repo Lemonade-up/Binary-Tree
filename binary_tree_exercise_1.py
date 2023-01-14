@@ -21,9 +21,10 @@ class BinarySearchTreeNode:
     
     def find_min(self):
         if self.left:
-            self.left.find_min(self)
+            return self.left.find_min()
         else:
-            return self.left
+            return self.data
+
 
     def search(self, val):
         if self.data == val:
