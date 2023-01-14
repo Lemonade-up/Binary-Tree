@@ -31,6 +31,18 @@ class BinarySearchTreeNode:
         else:
             return self.data
 
+    def calculate_sum(self):
+        if self.left:
+            leftsum = self.left.calculate_sum()
+        else:
+            leftsum = 0
+        if self.right:
+            rightsum = self.right.calculate_sum()
+        else:
+            rightsum = 0
+        
+        return leftsum + rightsum + self.data
+
 
     def search(self, val):
         if self.data == val:
@@ -76,3 +88,4 @@ if __name__ == '__main__':
     print(numbers_tree.search(50))
     print(numbers_tree.find_min())
     print(numbers_tree.find_max())
+    print(numbers_tree.calculate_sum())
