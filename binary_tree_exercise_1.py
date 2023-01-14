@@ -24,6 +24,12 @@ class BinarySearchTreeNode:
             return self.left.find_min()
         else:
             return self.data
+    
+    def find_max(self):
+        if self.right:
+            return self.right.find_max()
+        else:
+            return self.data
 
 
     def search(self, val):
@@ -69,3 +75,4 @@ if __name__ == '__main__':
     print(numbers_tree.search(1))
     print(numbers_tree.search(50))
     print(numbers_tree.find_min())
+    print(numbers_tree.find_max())
